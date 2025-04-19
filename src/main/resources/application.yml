@@ -11,6 +11,6 @@ spring:
       ddl-auto: update
 
   datasource:
-    url: jdbc:mysql://localhost:3306/LearnBoot
+    url: jdbc:mysql://localhost:3306/LearnSpringboot
     username: root
     password: Kul&12345
