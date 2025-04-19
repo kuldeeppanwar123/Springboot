@@ -8,7 +8,6 @@ import lombok.*;
 @DiscriminatorValue("BIKE")
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Bike extends Vehicle{
     private Integer petrolCapacity;
     @Builder

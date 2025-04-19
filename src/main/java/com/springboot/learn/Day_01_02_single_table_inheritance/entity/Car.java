@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @DiscriminatorValue("CAR")
 @Setter
-@ToString
 public class Car extends Vehicle{
     private Integer numOfDoors;
 
@@ -27,6 +26,4 @@ public class Car extends Vehicle{
                 ", numOfDoors=" + numOfDoors +
                 '}';
     }
-
-
 }
