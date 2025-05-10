@@ -1,5 +1,6 @@
 package com.springboot.learn.Day_03_01_many_to_many_association.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,11 +23,16 @@ public class Student {
     private String name;
     private int age;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "student_courses",
-            joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id")
+            joinColumns = {
+                @JoinColumn(name = "student_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns =  {
+                @JoinColumn(name = "course_id", referencedColumnName = "id")
+            }
     )
+    @JsonManagedReference
     private List<Course>courses = new ArrayList<>();
 
     public String toString(){

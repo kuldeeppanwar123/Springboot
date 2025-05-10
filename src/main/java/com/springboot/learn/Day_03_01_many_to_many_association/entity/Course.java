@@ -1,5 +1,6 @@
 package com.springboot.learn.Day_03_01_many_to_many_association.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +23,8 @@ public class Course {
     private String name;
     private Double price;
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Student> students = new ArrayList<>();
 
     public String toString() {
