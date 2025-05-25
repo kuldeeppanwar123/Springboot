@@ -1,9 +1,9 @@
 package com.springboot.learn.Day_05_01_one_to_one_eager_lazy_loading;
 
-import com.springboot.learn.Day_05_01_eager_loading.entity.Laptop;
-import com.springboot.learn.Day_05_01_eager_loading.entity.Student;
-import com.springboot.learn.Day_05_01_eager_loading.respository.LaptopRepository;
-import com.springboot.learn.Day_05_01_eager_loading.respository.StudentRepository;
+import com.springboot.learn.Day_05_01_one_to_one_eager_lazy_loading.entity.Laptop;
+import com.springboot.learn.Day_05_01_one_to_one_eager_lazy_loading.entity.Student;
+import com.springboot.learn.Day_05_01_one_to_one_eager_lazy_loading.respository.LaptopRepository;
+import com.springboot.learn.Day_05_01_one_to_one_eager_lazy_loading.respository.StudentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

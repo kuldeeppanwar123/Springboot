@@ -13,7 +13,7 @@ public class Laptop {
     private Long id;
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //default fetch type : EAGER
     private Student student;
 
     @Override

@@ -15,7 +15,7 @@ public class Student {
     private Long id;
     private String name;
 
-    @OneToOne(mappedBy = "student", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "student", fetch = FetchType.LAZY) //default fetch type : EAGER
     private Laptop laptop;
 
     @Override
