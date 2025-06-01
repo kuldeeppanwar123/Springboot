@@ -4,6 +4,7 @@ import com.springboot.learn.Day_06_01_JPQL_and_native_query.entity.Booking;
 import com.springboot.learn.Day_06_01_JPQL_and_native_query.entity.Driver;
 import com.springboot.learn.Day_06_01_JPQL_and_native_query.repository.BookingRepository;
 import com.springboot.learn.Day_06_01_JPQL_and_native_query.repository.DriverRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Transactional
 public class ApplicationRunner implements CommandLineRunner {
     @Autowired
     private BookingRepository bookingRepository;
@@ -67,14 +69,16 @@ public class ApplicationRunner implements CommandLineRunner {
 //
 //        driverRepository.save(driver2);
 
-        List<Long>driverIds = new ArrayList<>(Arrays.asList(7L, 8L));
-        Optional<List<Driver>>drivers = driverRepository.findAllByIdIn(driverIds);
-
-        for(Driver d:drivers.get()){
-            List<Booking>bookings = d.getBookings();
-            System.out.println(d);
-            bookings.forEach(booking -> System.out.println(booking));
-
-        }
+//        List<Long>driverIds = new ArrayList<>(Arrays.asList(7L, 8L));
+//        Optional<List<Driver>>drivers = driverRepository.findAllByIdIn(driverIds);
+//
+//        for(Driver d:drivers.get()){
+//            List<Booking>bookings = d.getBookings();
+//            System.out.println(d);
+//            bookings.forEach(booking -> System.out.println(booking));
+//        }
+        Optional<Driver>driver = driverRepository.findById(7L);
+        System.out.println(driver);
+        List<Booking>bookings = driver.get().getBookings();
     }
 }

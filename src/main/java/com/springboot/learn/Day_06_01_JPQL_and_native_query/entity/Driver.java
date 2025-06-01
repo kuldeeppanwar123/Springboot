@@ -18,10 +18,12 @@ public class Driver extends BaseModel {
     private String name;
     private String licenseNo;
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @Fetch(value = FetchMode.JOIN)
+//    @Fetch(value = FetchMode.JOIN)  // use left outer join
+//    @Fetch(value = FetchMode.SELECT)  // default
+    @Fetch(value = FetchMode.SUBSELECT)  // 1 query to get parent and 2nd subquery for associated collection.
     private List<Booking> bookings;
 
     public String toString() {
-        return "Driver: { id: "+this.id+", name: "+this.name+", licenseNo: "+this.licenseNo+" }";
+        return "Driver: { id: "+this.id+", name: "+this.name+", licenseNo: "+this.licenseNo+", booking: "+this.bookings+" }";
     }
 }
