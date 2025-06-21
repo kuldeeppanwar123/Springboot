@@ -5,10 +5,18 @@ spring:
   application:
     name: jpaMapping
 
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: jdbc:mysql://localhost:3306/learnspringboot
+    user: root
+    password: Kul&12345
+    locations: classpath:db/migration
+
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate.enable_lazy_load_no_trans: true
 
